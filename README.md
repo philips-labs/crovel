@@ -46,6 +46,9 @@ resource "cloudfoundry_app" "crovel" {
     CROVEL_SRC_EXCHANGE  = "foo"
     CROVEL_DEST_EXCHANGE = "bar"
   }
+  service_binding {
+    service_instance = cloudfoundry_service_instance.rabbitmq.id
+  }
 }
 
 ```
