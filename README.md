@@ -23,7 +23,7 @@ applications:
   docker:
     image: loafoe/crovel:latest
   instances: 1
-  memory: 64M
+  memory: 32M
   disk_quota: 128M
   health-check-type: process
   env:
@@ -38,7 +38,7 @@ applications:
 resource "cloudfoundry_app" "crovel" {
   name         = "crovel"
   space        = data.cloudfoundry_space.space.id
-  memory       = 64
+  memory       = 32
   disk_quota   = 128
   docker_image = "loafoe/crovel:latest"
   health_check_type = "process"
