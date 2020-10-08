@@ -6,11 +6,11 @@ Set the following environment variables to wire things up
 
 | Environment | Description | Required | Default |
 |-------------|-------------|----------|---------| 
-| SRC_EXCHANGE | Name of source exchange | yes |  |
-| SRC_ROUTING_KEY | Source routing key | no | `#` |
-| SRC_EXCHANGE_TYPE | Source exchange type | no | `topic` |
-| DEST_EXCHANGE | Destination exchange | yes | |
-| DEST_EXCHANGE_TYPE | Destination exchange type | no | `topic` |
+| CROVEL_SRC_EXCHANGE | Name of source exchange | yes |  |
+| CROVEL_SRC_ROUTING_KEY | Source routing key | no | `#` |
+| CROVEL_SRC_EXCHANGE_TYPE | Source exchange type | no | `topic` |
+| CROVEL_DEST_EXCHANGE | Destination exchange | yes | |
+| CROVEL_DEST_EXCHANGE_TYPE | Destination exchange type | no | `topic` |
 
 # Deploy
 Deploy to Cloud Foundry and bind the `RabbitMQ` service to the app
@@ -27,8 +27,8 @@ applications:
   disk_quota: 128M
   health-check-type: process
   env:
-    SRC_EXCHANGE: foo
-    DEST_EXCHANGE: bar
+    CROVEL_SRC_EXCHANGE: foo
+    CROVEL_DEST_EXCHANGE: bar
   services:
   - rabbitmq
 ```
@@ -43,8 +43,8 @@ resource "cloudfoundry_app" "crovel" {
   docker_image = "loafoe/crovel:latest"
   health_check_type = "process"
   environment = {
-    SRC_EXCHANGE  = "foo"
-    DEST_EXCHANGE = "bar"
+    CROVEL_SRC_EXCHANGE  = "foo"
+    CROVEL_DEST_EXCHANGE = "bar"
   }
 }
 
