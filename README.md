@@ -50,6 +50,11 @@ resource "cloudfoundry_app" "crovel" {
 
 ```
 
+# Ideas
+- Support forwarding to different RabbitMQ cluster
+- Support mulitple exchange forwards per instance
+- Configurable durability
+
 # Contact / Getting help
 andy.lo-a-foe@philips.com
 
